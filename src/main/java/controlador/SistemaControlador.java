@@ -3,8 +3,16 @@ package controlador;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
+
 import javax.swing.JOptionPane;
-import modelo.*;
+
+import modelo.Cliente;
+import modelo.GradoEstudio;
+import modelo.Oferta;
+import modelo.Postulante;
+import modelo.Requisito;
+import modelo.Rubro;
+import modelo.SistemaArreglos;
 import vista.SistemaVista;
 
 public class SistemaControlador {

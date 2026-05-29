@@ -8,6 +8,7 @@ public class Postulante {
     private String email;
     private String nombres;
     private String apellidos;
+    private String telefono; // <-- Añadido según el requerimiento del enunciado
     private String direccion;
     private Date nacimiento;
     private String clave;
@@ -18,10 +19,12 @@ public class Postulante {
         this.postulaciones = new ArrayList<>();
     }
 
-    public Postulante(String email, String nombres, String apellidos, String direccion, Date nacimiento, String clave) {
+    // Constructor corregido con exactamente 7 parámetros para alinearse con el controlador
+    public Postulante(String email, String nombres, String apellidos, String telefono, String direccion, Date nacimiento, String clave) {
         this.email = email;
         this.nombres = nombres;
         this.apellidos = apellidos;
+        this.telefono = telefono;
         this.direccion = direccion;
         this.nacimiento = nacimiento;
         this.clave = clave;
@@ -47,63 +50,21 @@ public class Postulante {
         return false;
     }
 
-    public List<Postulacion> getPostulaciones() {
-        return postulaciones;
-    }
-
-    public void setPostulaciones(List<Postulacion> postulaciones) {
-        this.postulaciones = postulaciones;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public Date getNacimiento() {
-        return nacimiento;
-    }
-
-    public void setNacimiento(Date nacimiento) {
-        this.nacimiento = nacimiento;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
-    public GradoEstudio getGradoEstudio() {
-        return gradoEstudio;
-    }
+    public List<Postulacion> getPostulaciones() { return postulaciones; }
+    public void setPostulaciones(List<Postulacion> postulaciones) { this.postulaciones = postulaciones; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public String getNombres() { return nombres; }
+    public void setNombres(String nombres) { this.nombres = nombres; }
+    public String getApellidos() { return apellidos; }
+    public void setApellidos(String apellidos) { this.apellidos = apellidos; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getDireccion() { return direccion; }
+    public void setDireccion(String direccion) { this.direccion = direccion; }
+    public Date getNacimiento() { return nacimiento; }
+    public void setNacimiento(Date nacimiento) { this.nacimiento = nacimiento; }
+    public String getClave() { return clave; }
+    public void setClave(String clave) { this.clave = clave; }
+    public GradoEstudio getGradoEstudio() { return gradoEstudio; }
 }
