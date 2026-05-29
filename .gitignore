@@ -1,0 +1,17 @@
+# Archivos compilados Java
+*.class
+
+# Carpeta generada por Maven
+target/
+
+# Archivos de NetBeans
+nbproject/private/
+build/
+
+# Temporales del sistema
+Thumbs.db
+.DS_Store
+
+# Temporales de NetBeans/editor
+*.java~
+.LCK*
