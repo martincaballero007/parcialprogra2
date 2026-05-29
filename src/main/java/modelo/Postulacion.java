@@ -16,35 +16,12 @@ public class Postulacion {
         this.anulado = false;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public boolean isAnulado() {
-        return anulado;
-    }
-
-    public void setAnulado(boolean anulado) {
-        this.anulado = anulado;
-    }
-
-    public Date getFechaAnulacion() {
-        return fechaAnulacion;
-    }
-
-    public void setFechaAnulacion(Date fechaAnulacion) {
-        this.fechaAnulacion = fechaAnulacion;
-    }
-
-    public Oferta getOferta() {
-        return oferta;
-    }
-
-    public void setOferta(Oferta oferta) {
-        this.oferta = oferta;
-    }
+    public Date getFecha() { return fecha; }
+    public void setFecha(Date fecha) { this.fecha = fecha; }
+    public boolean isAnulado() { return anulado; }
+    public void setAnulado(boolean anulado) { this.anulado = anulado; }
+    public Date getFechaAnulacion() { return fechaAnulacion; }
+    public void setFechaAnulacion(Date fechaAnulacion) { this.fechaAnulacion = fechaAnulacion; }
+    public Oferta getOferta() { return oferta; }
+    public void setOferta(Oferta oferta) { this.oferta = oferta; }
 }

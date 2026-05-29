@@ -19,58 +19,38 @@ public class SistemaVista extends JFrame {
     private JButton btnSalir;
 
     public SistemaVista() {
-        
         setTitle("Sistema de Reclutamiento TI");
         setSize(400, 350);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        setLocationRelativeTo(null); 
 
-        
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 1, 15, 15));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
 
-        
         JLabel lblTitulo = new JLabel("MENÚ PRINCIPAL", SwingConstants.CENTER);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
         panel.add(lblTitulo);
 
-        
         btnRegistroEmpresas = new JButton("1. Registro de Empresas");
         btnOfertasTrabajo = new JButton("2. Ofertas de Trabajo");
         btnCandidatos = new JButton("3. Candidatos y Postulación");
         btnSalir = new JButton("0. Salir");
 
-        
         panel.add(btnRegistroEmpresas);
         panel.add(btnOfertasTrabajo);
         panel.add(btnCandidatos);
         panel.add(btnSalir);
 
-        
         add(panel);
     }
 
-    // Métodos para mostrar pop-ups de información
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Información", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    //Listeners ---
-
-    public void addRegistroEmpresasListener(ActionListener listener) {
-        btnRegistroEmpresas.addActionListener(listener);
-    }
-
-    public void addOfertasTrabajoListener(ActionListener listener) {
-        btnOfertasTrabajo.addActionListener(listener);
-    }
-
-    public void addCandidatosListener(ActionListener listener) {
-        btnCandidatos.addActionListener(listener);
-    }
-
-    public void addSalirListener(ActionListener listener) {
-        btnSalir.addActionListener(listener);
-    }
+    public void addRegistroEmpresasListener(ActionListener listener) { btnRegistroEmpresas.addActionListener(listener); }
+    public void addOfertasTrabajoListener(ActionListener listener) { btnOfertasTrabajo.addActionListener(listener); }
+    public void addCandidatosListener(ActionListener listener) { btnCandidatos.addActionListener(listener); }
+    public void addSalirListener(ActionListener listener) { btnSalir.addActionListener(listener); }
 }

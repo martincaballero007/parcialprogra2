@@ -1,25 +1,26 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Postulante {
     private String email;
     private String nombres;
     private String apellidos;
-    private String telefono; // <-- Añadido según el requerimiento del enunciado
+    private String telefono; // Mantiene los 7 parámetros de tu corrección exitosa
     private String direccion;
     private Date nacimiento;
     private String clave;
     private GradoEstudio gradoEstudio;
-    private List<Postulacion> postulaciones;
+    
+    // Arreglo nativo según UML
+    private Postulacion[] postulaciones;
+    private int contadorPostulaciones;
 
     public Postulante() {
-        this.postulaciones = new ArrayList<>();
+        this.postulaciones = new Postulacion[100];
+        this.contadorPostulaciones = 0;
     }
 
-    // Constructor corregido con exactamente 7 parámetros para alinearse con el controlador
     public Postulante(String email, String nombres, String apellidos, String telefono, String direccion, Date nacimiento, String clave) {
         this.email = email;
         this.nombres = nombres;
@@ -28,7 +29,8 @@ public class Postulante {
         this.direccion = direccion;
         this.nacimiento = nacimiento;
         this.clave = clave;
-        this.postulaciones = new ArrayList<>();
+        this.postulaciones = new Postulacion[100];
+        this.contadorPostulaciones = 0;
     }
 
     public boolean asignarGradoEstudio(GradoEstudio grado) {
@@ -37,21 +39,35 @@ public class Postulante {
     }
 
     public boolean postular(Oferta oferta) {
+        if (contadorPostulaciones >= postulaciones.length) return false;
         Postulacion postulacion = new Postulacion(new Date(), oferta);
-        return this.postulaciones.add(postulacion);
+        this.postulaciones[contadorPostulaciones] = postulacion;
+        contadorPostulaciones++;
+        return true;
     }
 
     public boolean anularPostulacion(Postulacion postulacion) {
-        if (this.postulaciones.contains(postulacion)) {
-            postulacion.setAnulado(true);
-            postulacion.setFechaAnulacion(new Date());
-            return true;
+        int posicion = -1;
+        for (int i = 0; i < contadorPostulaciones; i++) {
+            if (postulaciones[i] == postulacion) {
+                posicion = i;
+                break;
+            }
         }
-        return false;
+        if (posicion == -1) return false;
+
+        postulaciones[posicion].setAnulado(true);
+        postulaciones[posicion].setFechaAnulacion(new Date());
+        return true;
     }
 
-    public List<Postulacion> getPostulaciones() { return postulaciones; }
-    public void setPostulaciones(List<Postulacion> postulaciones) { this.postulaciones = postulaciones; }
+    // Firma exacta del UML: Retorna Postulacion[]
+    public Postulacion[] getPostulaciones() {
+        Postulacion[] actuales = new Postulacion[contadorPostulaciones];
+        System.arraycopy(this.postulaciones, 0, actuales, 0, contadorPostulaciones);
+        return actuales;
+    }
+
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
     public String getNombres() { return nombres; }
